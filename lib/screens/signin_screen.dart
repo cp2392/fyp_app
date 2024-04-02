@@ -13,6 +13,8 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
           hexStringtToColor("CB2B93"),
@@ -20,16 +22,16 @@ class _SignInScreenState extends State<SignInScreen> {
           hexStringtToColor("5E61F4")
         ], 
         begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-        // child: SingleChildScrollView(
-        //     child: Padding(
-        //   padding: EdgeInsets.fromLTRB(
-        //       20, MediaQuery.of(context).size.height * 0.2, 20, 0),
-        //   // child: Column(
-        //   //   children: <Widget>[
-        //   //     logoWidget("assets/images/logo1.png"),
-        //   //   ],
-        //   // ),
-        // )),
+        child: SingleChildScrollView(
+            child: Padding(
+          padding: EdgeInsets.fromLTRB(
+              20, MediaQuery.of(context).size.height * 0.2, 20, 0),
+          child: Column(
+            children: <Widget>[
+              logoWidget("assets/images/logo1.png"),
+            ],
+          ),
+        )),
       ),
     );
   }
@@ -40,6 +42,7 @@ class _SignInScreenState extends State<SignInScreen> {
       fit: BoxFit.fitWidth,
       width: 240,
       height: 240,
+      color: Colors.white,
     );
   }
 
