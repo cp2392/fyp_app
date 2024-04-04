@@ -29,9 +29,22 @@ class _SignInScreenState extends State<SignInScreen> {
         child: SingleChildScrollView(
             child: Padding(
           padding: EdgeInsets.fromLTRB(
-              20, MediaQuery.of(context).size.height * 0.2, 20, 0),
+              20, 125, 20, 0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              Text(
+              "SMART NAVI-STICK",
+              style: TextStyle(
+                fontFamily: 'CaviarDreams',
+                fontSize: 30,
+                color: Colors.red,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),
               logoWidget("assets/images/logo1.png"),
               SizedBox(
                 height: 50,
