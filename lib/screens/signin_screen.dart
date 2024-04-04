@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fyp_app/reusable_widgets/resuable_widget.dart';
-import 'package:fyp_app/screens/home_screen.dart';
 import 'package:fyp_app/screens/signup_screen.dart';
 import 'package:fyp_app/utils/colors_utils.dart';
 
@@ -12,6 +11,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   @override
@@ -25,7 +25,8 @@ class _SignInScreenState extends State<SignInScreen> {
           hexStringtToColor("FFFFFF"),
           hexStringtToColor("FFFFFF"),
           hexStringtToColor("000000")
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        ], 
+        begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SingleChildScrollView(
             child: Padding(
           padding: EdgeInsets.fromLTRB(
@@ -36,18 +37,15 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(
                 height: 50,
               ),
-              reusableTextField("Enter Username", Icons.person_outline, false,
-                  _emailTextController),
+              reusableTextField("Enter Username", Icons.person_outline, false, _emailTextController),
               SizedBox(
                 height: 30,
               ),
-              reusableTextField("Enter Password", Icons.lock_outline, true,
-                  _passwordTextController),
-              SizedBox(height: 30),
-              signInSignUpButton(context, true, () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()));
-              }),
+              reusableTextField("Enter Password", Icons.lock_outline, true, _passwordTextController),
+              SizedBox(
+                height: 30
+              ),
+              signInSignUpButton(context, true, (){}),
               signUpOption()
             ],
           ),
@@ -56,16 +54,16 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
+
   Row signUpOption() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have account? ",
-            style: TextStyle(color: Colors.white70)),
+        const Text("Don't have account? ", style: TextStyle(color: Colors.white70)),
         GestureDetector(
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SignUpScreen()));
+            MaterialPageRoute(builder: (context) => SignUpScreen()));
           },
           child: const Text(
             "Sign Up",
@@ -75,4 +73,5 @@ class _SignInScreenState extends State<SignInScreen> {
       ],
     );
   }
+
 }
