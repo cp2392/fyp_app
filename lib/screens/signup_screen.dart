@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fyp_app/reusable_widgets/reusable_widget.dart';
 import 'package:fyp_app/screens/home_screen.dart';
@@ -56,10 +57,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         height: 20,
                       ),
                       signInSignUpButton(context, false, () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen()));
+                        FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: _emailTextController.text,
+                                password: _passwordTextController.text)
+                            .then((value) {
+                          print("Created new account");
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        }).onError((error, stackTrace) {
+                          print("Error ${error.toString()}");
+                        });
                       })
                     ])))));
   }

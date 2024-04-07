@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fyp_app/reusable_widgets/reusable_widget.dart';
 import 'package:fyp_app/screens/home_screen.dart';
@@ -28,23 +29,22 @@ class _SignInScreenState extends State<SignInScreen> {
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SingleChildScrollView(
             child: Padding(
-          padding: EdgeInsets.fromLTRB(
-              20, 125, 20, 0),
+          padding: EdgeInsets.fromLTRB(20, 125, 20, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-              "SMART NAVI-STICK",
-              style: TextStyle(
-                fontFamily: 'CaviarDreams',
-                fontSize: 30,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
+                "SMART NAVI-STICK",
+                style: TextStyle(
+                  fontFamily: 'CaviarDreams',
+                  fontSize: 30,
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
+              SizedBox(
+                height: 50,
+              ),
               logoWidget("assets/images/logo1.png"),
               SizedBox(
                 height: 50,
@@ -58,8 +58,16 @@ class _SignInScreenState extends State<SignInScreen> {
                   _passwordTextController),
               SizedBox(height: 30),
               signInSignUpButton(context, true, () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()));
+                FirebaseAuth.instance
+                    .signInWithEmailAndPassword(
+                        email: _emailTextController.text,
+                        password: _passwordTextController.text)
+                    .then((value) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                }).onError((error, stackTrace) {
+                  print("Error ${error.toString()}");
+                });
               }),
               signUpOption()
             ],
