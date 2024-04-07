@@ -38,7 +38,7 @@ class _SignInScreenState extends State<SignInScreen> {
               style: TextStyle(
                 fontFamily: 'CaviarDreams',
                 fontSize: 30,
-                color: Colors.red,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
