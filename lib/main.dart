@@ -4,7 +4,14 @@ import 'package:fyp_app/screens/signin_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: 'AIzaSyADvV_DMeqyDVoa6tRs4e7o-nJypZlu4ks',
+      appId: 'id',
+      messagingSenderId: 'sendid',
+      projectId: 'myapp',
+    )
+  );
   runApp(const MyApp());
 }
 

@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:877933865532:android:31ab2663a889394a077139",
+        "mobilesdk_app_id": "1:877933865532:android:c23b35b1078cd5d4077139",
         "android_client_info": {
-          "package_name": "com.example.fyp_app_sns"
+          "package_name": "com.example.fyp_app"
         }
       },
       "oauth_client": [],
