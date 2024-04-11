@@ -5,6 +5,7 @@ import 'package:fyp_app/screens/signin_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+    name: 'FYP_App',
     options: FirebaseOptions(
       apiKey: 'AIzaSyADvV_DMeqyDVoa6tRs4e7o-nJypZlu4ks',
       appId: 'id',
